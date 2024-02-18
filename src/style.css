@@ -1,0 +1,28 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar {
+    background-color: aliceblue;
+    height: 100vh;
+    width: 30%;
+}
+
+.content {
+    background-color: black;
+}
+
+body {
+    display: flex;
+}
+
+.add-project-btn {
+    display: flex;
+    flex-direction: row;
+}
+
+.plus-img {
+    height: 1rem;
+
+}
