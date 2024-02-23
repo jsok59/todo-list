@@ -1,5 +1,5 @@
 import plus from './images/new_plus.png';
-import { dialog } from './generateProjectForm';
+import generateContent from './generateContent';
 
 function generateSidebar(project_list) {
     const sidebar = document.querySelector('.sidebar');
@@ -25,11 +25,11 @@ function generateSidebar(project_list) {
         const dialog = document.querySelector('.project-dialog');
         dialog.showModal();
     });
-    const addImage = new Image();
-    addImage.src = plus;
-    addImage.classList = 'plus-img';
+    const plusImage = new Image();
+    plusImage.src = plus;
+    plusImage.classList = 'plus-img';
     
-    addProjectBtn.appendChild(addImage);
+    addProjectBtn.appendChild(plusImage);
     addProjectBtn.appendChild(addProjectText);
     sidebar.appendChild(addProjectBtn);
 
@@ -42,12 +42,17 @@ function generateSidebar(project_list) {
 
 }
 
-function createProjectDOM(projects, sidebar) {
+function createProjectDOM(project_list, sidebar) {
     
-    projects.list.forEach((project) => {
+    project_list.list.forEach((project) => {
         const div = document.createElement('div');
         div.setAttribute('class','project');
         div.textContent = project.title;
+        div.addEventListener('click', (e)=> {
+            const content = document.querySelector('.content');
+            content.innerHTML = '';
+            generateContent(project);
+        })
         sidebar.appendChild(div);
     })
 

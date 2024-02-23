@@ -3,6 +3,7 @@ import Project from "./createProject";
 import Todo from "./createTodo";
 import {generateSidebar, createProjectDOM} from "./generateSidebar";
 import generateProjectForm from './generateProjectForm';
+import generateTodoForm from './generateTodoForm';
 import './style.css';
 
 const project_list = new ProjectList("Project List");
@@ -24,5 +25,7 @@ project_list.addProject(project2);
 
 generateProjectForm(project_list);
 generateSidebar(project_list);
-console.log(project_list);
+generateTodoForm(project1);
+
+
 

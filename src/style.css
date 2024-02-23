@@ -14,7 +14,8 @@
 }
 
 .content {
-    background-color: black;
+    background-color: white;
+    width: 100%;
 }
 
 body {
@@ -24,6 +25,8 @@ body {
 .add-project-btn {
     display: flex;
     flex-direction: row;
+    gap: 5px;
+    width: fit-content;
 }
 
 .plus-img

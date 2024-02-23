@@ -50,6 +50,7 @@ function generateProjectForm(project_list) {
     title_input.setAttribute('type', 'text');
     title_input.setAttribute('id', 'form-title');
     title_input.setAttribute('name', 'form-title');
+    title_input.required = true;
     title_div.appendChild(title_label);
     title_div.appendChild(title_input);
     form.appendChild(title_div);
@@ -60,15 +61,16 @@ function generateProjectForm(project_list) {
     submitBtn.setAttribute('class', 'submit-btn');
     submitBtn.setAttribute('type', 'submit');
     submitBtn.addEventListener('click', (e) =>{
+        if (form['form-title'].value != '') {
         e.preventDefault();
         const sidebar = document.querySelector('.sidebar');
         const project = new Project(form['form-title'].value);
-        console.log(form['form-title'].value);
         project_list.addProject(project);
         form.reset();
         dialog.close();
         sidebar.innerHTML ='';
         generateSidebar(project_list);
+        }
     })
     form.appendChild(submitBtn);
 
