@@ -5,7 +5,6 @@
 
 .sidebar {
     background-color: aliceblue;
-    height: 100vh;
     width: 30%;
     padding: 15px;
     display: flex;
@@ -13,13 +12,11 @@
     gap: 10px;
 }
 
-.content {
-    background-color: white;
-    width: 100%;
-}
+
 
 body {
     display: flex;
+    height: 100vh;
 }
 
 .add-project-btn {
@@ -45,19 +42,25 @@ dialog img {
 .heading_div {
     display: flex;
     flex-direction: row;
-    gap: 50px;
+    gap: 40px;
     align-items: center;
+
     
+}
+
+.heading_div img {
+    margin-left: auto;
 }
 
 dialog {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -100%);
+    transform: translate(-50%, -50%);
     padding: 15px;
     border-radius: 20px;
     gap: 15px;
+
 }
 
 #project-form {
@@ -75,3 +78,35 @@ dialog {
 
 
 /********* DIALOG START ***********/
+
+
+/********* CONTENT START **********/
+.content {
+    background-color: white;
+    width: 100%;
+    padding: 15px;
+}
+
+.content-heading-div {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+}
+
+#todo-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#todo-form div {
+    display: flex;
+    gap: 10px;
+}
+
+input,
+textarea {
+    padding: 5px;
+}
+

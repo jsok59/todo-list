@@ -27,7 +27,7 @@ function generateContent(project) {
     addTodoBtn.addEventListener('click', (e)=> {
         dialog.showModal();
     })
-    content.appendChild(addTodoBtn);
+    heading_div.appendChild(addTodoBtn);
 
 /*** ADD TODO BUTTON END**** */
 

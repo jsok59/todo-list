@@ -8,8 +8,8 @@ import './style.css';
 
 const project_list = new ProjectList("Project List");
 
-const project1 = new Project("hi");
-const project2 = new Project("Basketball");
+const project1 = new Project("Grading Papers");
+const project2 = new Project("Lesson Plans");
 const todo1 = new Todo("todo1", 
 "wasdfa", "wfasd", 1);
 const todo2 = new Todo("todo2", 
