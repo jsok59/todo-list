@@ -1,5 +1,5 @@
 import plus from './images/new_plus.png';
-import generateContent from './generateContent';
+import {generateContent, createTodoDO} from './generateContent';
 
 function generateSidebar(project_list) {
     const sidebar = document.querySelector('.sidebar');

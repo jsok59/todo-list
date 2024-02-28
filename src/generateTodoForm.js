@@ -1,5 +1,5 @@
 import close from "./images/close.svg";
-
+import { createTodoDOM } from "./generateContent";
 function generateTodoForm(todo_list) {
 	const body = document.querySelector("body");
 	const dialog = document.createElement("dialog");
@@ -110,7 +110,14 @@ function generateTodoForm(todo_list) {
     submitBtn.setAttribute('class', 'submit-btn');
     submitBtn.setAttribute('type', 'submit');
     submitBtn.textContent = 'Add Todo';
-
+    submitBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const todo = new Todo(form['todo-title'].value, form['todo-description'].value, form['todo-date'].value, form['todo-priority'].value );
+        todo_list.addTodo(todo);
+        const content_div = document.querySelector('.content-todo-div');
+        content_div.innerHTML = '';
+        createTodoDOM(todo_list);
+    })
     form.appendChild(submitBtn);
 }
 
