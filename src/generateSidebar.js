@@ -1,5 +1,6 @@
 import plus from './images/new_plus.png';
 import {generateContent, createTodoDO} from './generateContent';
+import generateTodoForm from './generateTodoForm';
 
 function generateSidebar(project_list) {
     const sidebar = document.querySelector('.sidebar');
@@ -49,9 +50,12 @@ function createProjectDOM(project_list, sidebar) {
         div.setAttribute('class','project');
         div.textContent = project.title;
         div.addEventListener('click', (e)=> {
+            console.log(project);
             const content = document.querySelector('.content');
             content.innerHTML = '';
+            
             generateContent(project);
+            
         })
         sidebar.appendChild(div);
     })

@@ -1,6 +1,8 @@
 import close from "./images/close.svg";
-import { createTodoDOM } from "./generateContent";
-function generateTodoForm(todo_list) {
+import { createTodoDOM, generateContent } from "./generateContent";
+import Todo from './createTodo';
+
+function generateTodoForm() {
 	const body = document.querySelector("body");
 	const dialog = document.createElement("dialog");
 	dialog.setAttribute("class", "todo-dialog");
@@ -110,15 +112,25 @@ function generateTodoForm(todo_list) {
     submitBtn.setAttribute('class', 'submit-btn');
     submitBtn.setAttribute('type', 'submit');
     submitBtn.textContent = 'Add Todo';
-    submitBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        const todo = new Todo(form['todo-title'].value, form['todo-description'].value, form['todo-date'].value, form['todo-priority'].value );
-        todo_list.addTodo(todo);
-        const content_div = document.querySelector('.content-todo-div');
-        content_div.innerHTML = '';
-        createTodoDOM(todo_list);
-    })
+   
     form.appendChild(submitBtn);
+}
+
+function createEventListener(project) {
+
+
+    // submitBtn.addEventListener('click', (e) => {
+    //     console.log(e.target);
+    //     e.preventDefault();
+    //     const todo = new Todo(form['todo-title'].value, form['todo-description'].value, form['todo-date'].value, form['todo-priority']);
+    //     console.log(form['todo-priority']);
+    //     todo_list.addTodo(todo);
+    //     const content_div = document.querySelector('.content-todo-div');
+    //     content_div.innerHTML = '';
+    //     createTodoDOM(todo_list);
+    //     form.reset();
+    //     dialog.close();
+    // })
 }
 
 export default generateTodoForm;
