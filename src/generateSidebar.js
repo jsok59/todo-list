@@ -1,6 +1,6 @@
 import plus from './images/new_plus.png';
 import {generateContent, createTodoDO} from './generateContent';
-import generateTodoForm from './generateTodoForm';
+import {createEventListener} from './generateTodoForm';
 
 function generateSidebar(project_list) {
     const sidebar = document.querySelector('.sidebar');
@@ -50,10 +50,14 @@ function createProjectDOM(project_list, sidebar) {
         div.setAttribute('class','project');
         div.textContent = project.title;
         div.addEventListener('click', (e)=> {
+            
+            console.log("Creating Todo content for...");
             console.log(project);
             const content = document.querySelector('.content');
             content.innerHTML = '';
-            
+            console.log('Creating Event Listner for ...');
+            console.log(project);
+            createEventListener(project);
             generateContent(project);
             
         })

@@ -118,19 +118,30 @@ function generateTodoForm() {
 
 function createEventListener(project) {
 
+    function handleAddTodo(e) {
+        e.preventDefault();
+        const dialog = document.querySelector('.todo-dialog');
+        const form = document.querySelector('#todo-form');
+        const todo = new Todo(form['todo-title'].value, form['todo-description'].value, form['todo-date'].value, form['todo-priority']);
+        console.log(form['todo-priority']);
+        project.addTodo(todo);
+        const content_div = document.querySelector('.content-todo-div');
+        content_div.innerHTML = '';
+        createTodoDOM(project);
+        form.reset();
+        dialog.close();
+    }
+    
+    function eventTester(e) {
+        e.preventDefault();
+        console.log('removing and adding eventlistener');
+        
+    }
 
-    // submitBtn.addEventListener('click', (e) => {
-    //     console.log(e.target);
-    //     e.preventDefault();
-    //     const todo = new Todo(form['todo-title'].value, form['todo-description'].value, form['todo-date'].value, form['todo-priority']);
-    //     console.log(form['todo-priority']);
-    //     todo_list.addTodo(todo);
-    //     const content_div = document.querySelector('.content-todo-div');
-    //     content_div.innerHTML = '';
-    //     createTodoDOM(todo_list);
-    //     form.reset();
-    //     dialog.close();
-    // })
+    const submitBtn = document.querySelector('.todo-dialog .submit-btn');
+    submitBtn.removeEventListener('click',eventTester);
+    submitBtn.addEventListener('click', eventTester);
+
 }
 
-export default generateTodoForm;
+export {createEventListener, generateTodoForm};
